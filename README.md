@@ -4,6 +4,4 @@
 
 ## Technologies Used
 
-- CSS Grid
-
 ## License

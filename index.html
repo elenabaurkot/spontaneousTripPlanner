@@ -12,21 +12,32 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Trying to use CSS Grid -->
-    <!-- Should span all the way across the top -->
     <nav></nav>
 
-    <!-- Maybe a short description in here -->
+    <header>
+      <h2>Press the button below to find out where you're going!</h2>
+      <button id="trip randomizer">Find Out Where You're Going!</button>
+    </header>
+    <!-- Later could add spot for user to enter trip dates to get info more accurate to their time -->
 
-    <!-- Search form -->
-    <!-- maybe Centered up top -->
-    <form action=""></form>
+    <div id="tripSpot">
+      <!-- This will be dynamically created -->
+      <!-- Should contain some text saying "You're going to _____ !" -->
+      <!-- Should also contain 1-3 pictures of the place -->
+    </div>
 
     <!-- Div to return flight info for user from API -->
-    <div id="flightResponse"></div>
+    <div id="flightResponse">
+      <!-- Dynamically created, shows flight options -->
+    </div>
 
-    <!-- Div for an image response of place? -->
-    <!-- Div for an activity/must see response  -->
-    <!-- Div for where to stay (airbnb api or expedia hotels) -->
+    <div id="lodging">
+      <!-- dynamically created either hotel or airbnb options -->
+      <!-- Could allow user to decide if they want a hotel or airbnb and base the API call on that if you can figure out how to call to hotel site (I think Expedia Hotels) and airbnb site -->
+    </div>
+
+    <div id="must-see">
+      <!-- Div for an activity/must see things in randomly selected location -->
+    </div>
   </body>
 </html>
