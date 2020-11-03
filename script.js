@@ -3,26 +3,39 @@ const randomizerButton = document.getElementById('trip-randomizer');
 // Placeholder variable for now, will obtain this from user input
 let trip = 'Cancun, Mexico';
 
-// Function to show dart throwing animation
-// function showAnimation() {
-
-// }
-
-
 // Function for trip randomizer button click
 function getRandomTrip() {
-  const headerText = document.getElementById('header-text');
-
   // Get trip location randomly
+  // Should return a place name so that it can get passed into API calls
+}
+
+//Write API call functions here
+
+// Function to show dart throwing animation
+function showAnimation() {
+  const headerText = document.getElementById('header-text');
+  const header = document.querySelector('header');
+  const dartDiv = document.getElementById('dart-animation');
+
+  // Remove the hide class to show the dart div and add hide to the header
+  dartDiv.classList.remove('hide');
+  header.classList.add('hide');
 
   // Set the header to tell the user where they're going and change the text of the button
   headerText.textContent = `You're going to ${trip}!`;
   randomizerButton.textContent = 'Pick a New Trip';
+
+  // Call function to get random location for user
+  let tripLocation = getRandomTrip();
+  // since this should return the location name, you can pass this variable into your api calls here to set the other divs up
+  // Make your API calls
+  // give the divs where the stuff from API calls will go a class that hides them and also remove that from all of them after the timeout
+
+  // Create timeout function to add back the hide class on dart div and remove on header
 }
 
-// On button click you could instead show animation, set a timeout function after animation plays to call get random trip -- animation showing dart first then random trip stuff comes in?
 // Click Events
-randomizerButton.addEventListener('click', getRandomTrip);
+randomizerButton.addEventListener('click', showAnimation);
 
 // On button click:
 // animation should pop up showing dart getting thrown at a map--> after the animation then the info about their trip will appear
