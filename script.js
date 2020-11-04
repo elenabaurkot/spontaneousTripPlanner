@@ -1,19 +1,25 @@
 // Global Variables
 const randomizerButton = document.getElementById('trip-randomizer');
-// Placeholder variable for now, will obtain this from user input
-let trip = 'Cancun, Mexico';
+const headerText = document.getElementById('header-text');
 
 // Function for trip randomizer button click
 function getRandomTrip() {
   // Get trip location randomly
   // Should return a place name so that it can get passed into API calls
+
+  // Placeholder return for now, later will return the randomly selected place
+  return 'Cancun, Mexico';
 }
 
 //Write API call functions here
+// API call to skyscanner
+function findFlights(tripLocation) {
+  // you will pass in the actual
+  alert(tripLocation);
+}
 
 // Function to show dart throwing animation
 function showAnimation() {
-  const headerText = document.getElementById('header-text');
   const header = document.querySelector('header');
   const dartDiv = document.getElementById('dart-animation');
 
@@ -21,17 +27,26 @@ function showAnimation() {
   dartDiv.classList.remove('hide');
   header.classList.add('hide');
 
-  // Set the header to tell the user where they're going and change the text of the button
-  headerText.textContent = `You're going to ${trip}!`;
-  randomizerButton.textContent = 'Pick a New Trip';
+  // Create timeout function to add back the hide class on dart div and remove on header
 
+  // Call function to add content to page based on randomly selected location for user
+  writePlaceToPage();
+}
+
+function writePlaceToPage() {
   // Call function to get random location for user
   let tripLocation = getRandomTrip();
   // since this should return the location name, you can pass this variable into your api calls here to set the other divs up
+  // API call to skyscanner
+  findFlights(tripLocation);
+
+  // Set the header to tell the user where they're going and change the text of the button
+  // will really use tripLocation variable once you get instead of predefined trip variable
+  headerText.textContent = `You're going to ${trip}!`;
+  randomizerButton.textContent = 'Pick a New Trip';
+
   // Make your API calls
   // give the divs where the stuff from API calls will go a class that hides them and also remove that from all of them after the timeout
-
-  // Create timeout function to add back the hide class on dart div and remove on header
 }
 
 // Click Events
@@ -48,3 +63,5 @@ randomizerButton.addEventListener('click', showAnimation);
 // Need to dynamically write this stuff to the page
 
 // Somewhere on the page will need a button to randomize again or go back to first page / start over
+
+// Might need to add dom loaded function
