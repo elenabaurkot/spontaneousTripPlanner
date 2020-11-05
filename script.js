@@ -1,6 +1,6 @@
 // Global Variables
 const randomizerButton = document.getElementById('trip-randomizer');
-const headerText = document.getElementById('header-text');
+const tripInfoText = document.getElementById('trip-info');
 
 // Function for trip randomizer button click
 function getRandomTrip() {
@@ -27,8 +27,10 @@ function showAnimation() {
   dartDiv.classList.remove('hide');
   header.classList.add('hide');
 
-  // Create timeout function to add back the hide class on dart div and remove on header
-
+  // Create timeout function to show the dartdiv then hide it
+  setTimeout(function () {
+    dartDiv.classList.add('hide');
+  }, 5000);
   // Call function to add content to page based on randomly selected location for user
   writePlaceToPage();
 }
@@ -36,13 +38,13 @@ function showAnimation() {
 function writePlaceToPage() {
   // Call function to get random location for user
   let tripLocation = getRandomTrip();
+  tripInfoText.textContent = `You're going to ${tripLocation}!`;
   // since this should return the location name, you can pass this variable into your api calls here to set the other divs up
   // API call to skyscanner
   findFlights(tripLocation);
 
   // Set the header to tell the user where they're going and change the text of the button
   // will really use tripLocation variable once you get instead of predefined trip variable
-  headerText.textContent = `You're going to ${trip}!`;
   randomizerButton.textContent = 'Pick a New Trip';
 
   // Make your API calls
